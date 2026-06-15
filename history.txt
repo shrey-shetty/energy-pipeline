@@ -1,8 +1,0 @@
-
-  Id     Duration CommandLine
-  --     -------- -----------
-   1        0.300 try { . "c:\Users\nehas\AppData\Local\Programs\Microsoft VS Code\1b50d58d73\resources\app\out\vs\…
-   2     2:06.199 gcloud dataproc batches submit pyspark `…
-   3        0.054 Get-History | Select-String "bq load"
-   4        0.025 Get-History | Select-String "fact_energy_market"
-
