@@ -1,0 +1,145 @@
+{
+  "creationTime": "1781143927947",
+  "etag": "ShEdclx9Ro4RbKRY/ypd1w==",
+  "id": "my-project-1-480817:energy_dw.fact_energy_market",
+  "kind": "bigquery#table",
+  "lastModifiedTime": "1781217787244",
+  "location": "US",
+  "numActiveLogicalBytes": "2828204",
+  "numActivePhysicalBytes": "660082",
+  "numBytes": "2828204",
+  "numCurrentPhysicalBytes": "626073",
+  "numLongTermBytes": "0",
+  "numLongTermLogicalBytes": "0",
+  "numLongTermPhysicalBytes": "0",
+  "numRows": "17548",
+  "numTimeTravelPhysicalBytes": "34009",
+  "numTotalLogicalBytes": "2828204",
+  "numTotalPhysicalBytes": "660082",
+  "schema": {
+    "fields": [
+      {
+        "mode": "NULLABLE",
+        "name": "interval_start_utc",
+        "type": "TIMESTAMP"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "biomass_mwh",
+        "type": "FLOAT"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "hydropower_mwh",
+        "type": "FLOAT"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "wind_offshore_mwh",
+        "type": "FLOAT"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "wind_onshore_mwh",
+        "type": "FLOAT"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "photovoltaics_mwh",
+        "type": "FLOAT"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "other_renewable_mwh",
+        "type": "FLOAT"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "total_renewable_mwh",
+        "type": "FLOAT"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "total_generation_mwh",
+        "type": "FLOAT"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "renewable_share_pct",
+        "type": "FLOAT"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "price_eur_mwh",
+        "type": "FLOAT"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "total_exports_mwh",
+        "type": "FLOAT"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "total_imports_mwh",
+        "type": "FLOAT"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "net_flow_mwh",
+        "type": "FLOAT"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "date",
+        "type": "DATE"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "hour",
+        "type": "INTEGER"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "day_of_week",
+        "type": "INTEGER"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "is_weekend",
+        "type": "BOOLEAN"
+      },
+      {
+        "mode": "REQUIRED",
+        "name": "season",
+        "type": "STRING"
+      },
+      {
+        "mode": "REQUIRED",
+        "name": "price_band",
+        "type": "STRING"
+      },
+      {
+        "mode": "REQUIRED",
+        "name": "trade_position",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "year",
+        "type": "INTEGER"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "month",
+        "type": "INTEGER"
+      }
+    ]
+  },
+  "selfLink": "https://bigquery.googleapis.com/bigquery/v2/projects/my-project-1-480817/datasets/energy_dw/tables/fact_energy_market",
+  "tableReference": {
+    "datasetId": "energy_dw",
+    "projectId": "my-project-1-480817",
+    "tableId": "fact_energy_market"
+  },
+  "type": "TABLE"
+}
