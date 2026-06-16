@@ -1,0 +1,12 @@
+energy_pipeline:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: service-account
+      project: my-project-1-480817
+      dataset: energy_dw
+      location: US
+      keyfile: C:\Users\nehas\projects\dbt-energy\dbt-key.json
+      threads: 4
+      timeout_seconds: 300
