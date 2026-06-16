@@ -14,3 +14,7 @@ data/
 *.parquet
 .user.yml
 dbt-key.json 
+
+dbt/target/
+dbt/profiles.yml
+dbt/dbt_packages/
