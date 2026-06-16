@@ -224,7 +224,7 @@ python scripts/ingest_entsoe.py
 
 ### Run Spark Transform
 ```bash
-gcloud dataproc batches submit pyspark spark/spark_transform.py \
+gcloud dataproc batches submit pyspark scripts/spark_transform.py \
   --region=us-central1
 ```
 
