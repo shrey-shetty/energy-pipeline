@@ -1,0 +1,43 @@
+version: 2
+
+models:
+  - name: stg_fact_generation_price
+    description: >
+      Typed and validated view over the BigQuery external table
+      my-project-1-480817.energy_dw.fact_generation_price.
+      This is the single entry point for all dbt models in this project.
+      The source table is written by the PySpark Dataproc Serverless job
+      and read via a BigQuery external table pointing to GCS Parquet files.
+    columns:
+      - name: interval_start_utc
+        description: Start of the hourly interval in UTC. Unique row identifier.
+        tests:
+          - not_null
+          - unique
+      - name: price_eur_mwh
+        description: Germany/Luxembourg day-ahead price (EUR/MWh).
+        tests:
+          - not_null
+      - name: total_renewable_mwh
+        description: Total renewable generation (MWh).
+        tests:
+          - not_null
+      - name: total_generation_mwh
+        description: Total generation across all sources (MWh).
+        tests:
+          - not_null
+      - name: renewable_share_pct
+        description: Renewable share as % of total generation.
+        tests:
+          - not_null
+      - name: season
+        description: Meteorological season derived by Spark.
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Winter', 'Spring', 'Summer', 'Autumn']
+      - name: spark_price_band
+        description: Coarse price label assigned by Spark (Negative/Low/Medium/High).
+        tests:
+          - accepted_values:
+              values: ['Negative', 'Low', 'Medium', 'High']

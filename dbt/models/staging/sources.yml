@@ -1,0 +1,64 @@
+version: 2
+
+sources:
+  - name: spark_output
+    description: >
+      External BigQuery table created from the PySpark (Dataproc Serverless) job output.
+      The Spark job joins SMARD generation + day-ahead price data, derives analytical
+      columns, and writes partitioned Parquet to GCS staging/fact_generation_price/.
+      BigQuery reads it via an external table — no data is copied into BQ storage.
+
+      This is the single canonical source for all dbt models.
+      The earlier stg_generation and stg_prices tables in energy_dw are
+      validation artifacts from the raw load step and are NOT used here.
+
+    database: my-project-1-480817
+    schema: energy_dw
+
+    tables:
+      - name: fact_energy_market
+        description: >
+          Hourly joined fact table produced by PySpark. One row per hour.
+          Contains generation by source (MWh), renewable totals, renewable share %,
+          Germany/Luxembourg day-ahead price, and pre-computed time dimensions
+          (date, hour, year, month, day_of_week, is_weekend, season, price_band).
+          Partitioned by year and month for query efficiency.
+        columns:
+          - name: interval_start_utc
+            description: Start of the hourly interval in UTC.
+          - name: biomass_mwh
+            description: Generation from biomass (MWh).
+          - name: hydropower_mwh
+            description: Generation from run-of-river hydro (MWh).
+          - name: wind_offshore_mwh
+            description: Generation from offshore wind (MWh).
+          - name: wind_onshore_mwh
+            description: Generation from onshore wind (MWh).
+          - name: photovoltaics_mwh
+            description: Generation from solar PV (MWh).
+          - name: other_renewable_mwh
+            description: Generation from other renewable sources (MWh).
+          - name: total_renewable_mwh
+            description: Sum of all renewable generation (MWh).
+          - name: total_generation_mwh
+            description: Sum of all generation sources (MWh).
+          - name: renewable_share_pct
+            description: Renewable share as % of total generation.
+          - name: price_eur_mwh
+            description: Germany/Luxembourg day-ahead spot price (EUR/MWh).
+          - name: date
+            description: Calendar date (derived by Spark).
+          - name: hour
+            description: Hour of day 0–23 (derived by Spark).
+          - name: year
+            description: Year (partition column).
+          - name: month
+            description: Month 1–12 (partition column).
+          - name: day_of_week
+            description: Day of week — 1=Sunday, 7=Saturday (Spark convention).
+          - name: is_weekend
+            description: True if Saturday or Sunday.
+          - name: season
+            description: Meteorological season — Winter/Spring/Summer/Autumn.
+          - name: price_band
+            description: Categorical price label — Low/Medium/High (Spark-derived).
