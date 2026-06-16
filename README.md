@@ -161,7 +161,6 @@ energy-pipeline/
 │   ├── clean_smard.py           # SMARD data extraction & cleaning
 │   ├── ingest_entsoe.py         # ENTSO-E real-time API ingestion
 │   └── check_columns.py         # Schema validation utility
-├── spark/
 │   └── spark_transform.py       # PySpark job (Dataproc Serverless)
 ├── dbt/
 │   ├── dbt_project.yml
