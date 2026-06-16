@@ -13,3 +13,4 @@ coverage/
 data/
 *.parquet
 .user.yml
+dbt-key.json 
