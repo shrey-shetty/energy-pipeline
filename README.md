@@ -153,6 +153,22 @@ marts/
 
 ---
 
+## 🗺️ Interactive Cross-Border Flow Map
+
+[![Live Map](docs/cross_border_flows.png)](https://shrey-shetty.github.io/energy-pipeline/cross_border_flows.html)
+
+*Click the map to open the interactive version.*
+
+Built with Python Plotly and hosted on GitHub Pages. Shows average net electricity flows between Germany and its 6 neighbouring countries (June 2024 – June 2026):
+
+- 🟢 **Green lines** — Germany is a net exporter (Austria, France, Switzerland, Netherlands)
+- 🔴 **Red lines** — Germany is a net importer (Poland: avg −2,824 MWh/hour)
+- ⬜ **Dashed grey** — No data available from ENTSO-E A11 endpoint (Denmark)
+
+**[→ Open Interactive Map](https://shrey-shetty.github.io/energy-pipeline/cross_border_flows.html)**
+
+---
+
 ## 📁 Repository Structure
 
 ```
@@ -160,7 +176,7 @@ energy-pipeline/
 ├── scripts/
 │   ├── clean_smard.py           # SMARD data extraction & cleaning
 │   ├── ingest_entsoe.py         # ENTSO-E real-time API ingestion
-│   └── check_columns.py         # Schema validation utility
+│   ├── check_columns.py         # Schema validation utility
 │   └── spark_transform.py       # PySpark job (Dataproc Serverless)
 ├── dbt/
 │   ├── dbt_project.yml
@@ -168,9 +184,12 @@ energy-pipeline/
 │       ├── staging/
 │       ├── intermediate/
 │       └── marts/
+├── docs/
+│   └── cross_border_flows.html  # Interactive flow map (GitHub Pages)
 ├── sql/
 │   └── analytical_queries.sql
 ├── images/                      # Pipeline screenshots
+├── flow_map.py                  # Cross-border flow map (Plotly)
 └── requirements.txt
 ```
 
@@ -187,7 +206,8 @@ energy-pipeline/
 | Transformation | dbt-bigquery 1.11 |
 | Orchestration | Cloud Scheduler + Cloud Run |
 | Language | Python 3.13, SQL |
-| Visualization | PowerBI / Tableau |
+| Visualization | Tableau, Python Plotly |
+| Flow Map | Plotly Scattergeo, hosted on GitHub Pages |
 
 ---
 
